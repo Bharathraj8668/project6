@@ -1,0 +1,18 @@
+import {test} from '@playwright/test'
+test('Dropdown',async({page}) => {
+    await page.goto('https://testautomationpractice.blogspot.com/')
+    await page.locator('//input[@id="name"]').fill('Bharathraj')
+    await page.locator('//input[@id="email"]').fill('bharath@gmail.com')
+    await page.locator('//input[@id="phone"]').fill('8668197563')
+    await page.locator('//textarea[@id="textarea"]').fill('Manalmedu')
+    await page.locator('//input[@id="male"]').click()
+    await page.locator('//input[@id="friday"]').click()
+    const country=await page.locator('//select[@id="country"]')
+await country.selectOption({value:"india"})
+const country1 = await country.locator('Option:checked').textContent()
+console.log("Select Language: ",country1)
+ const animal = await page.locator('//select[@id="animals"]')
+    await animal.selectOption([{ index: 0 } , { label: "Deer" } , { value: "lion" }])
+    const animals = await animal.locator('Option:checked').allTextContents()
+    console.log("Selected Animals", animals)
+})                               
