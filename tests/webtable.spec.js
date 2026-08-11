@@ -1,7 +1,7 @@
 import{test,expect}from'@playwright/test'
-test('Webtable',({page})=>{
+test('Webtable',async({page})=>{
     await page.goto('https://testautomationpractice.blogspot.com/')
     const rowdata=await page.locator('//table[@name="BookTable"]//tbody//tr[1]//td').allTextContents()
     console.log(rowdata)
-   const colmndata = await page.locator('')
+   const colmndata = await page.locator('bharat')
 })
